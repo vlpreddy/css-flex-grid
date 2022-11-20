@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        background-color: red;
+        height: 900px;
+        display: grid;
+
+        /* 
+        Method 1
+        grid-template-columns: 133px 133px 133px;
+        grid-template-rows: 133px 133px 133px; 
+
+        Comments: it will distribute the rows and column with specifited wid the and colum
+        */
+
+        /*
+        Method 2  
+        grid-template-rows: repeat(3,1fr); 
+        grid-template-columns: repeat(3, 1fr);
+
+        Comments : fr is the just unit of the size like px, it can be used in above comemnted example as well 
+        */
+
+        /* Method 3
+
+       Comments : here grid-template-row, first row takes width of 133px and the remaining rows distribute as the fraction(fr)
+       */
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 120px 1fr 45px;
+        row-gap: 12px;
+        column-gap: 12px;
+
+        /*
+        justify-items: start;
+          justify-items: end;
+          justify-items: center;
+
+        Comments : 
+        if we give justify-items coption it s mandate that the items in this container must have width or height or both
+        in this example we have removed it because we want justify-items to be applied to specific item, so we are givig this option to items instead of the container, you can check items
+        */
+
+        align-items: center;
+      }
+
+      .item {
+        background-color: aqua;
+        width: 100px;
+        height: 122px;
+      }
+
+      .item1 {
+        width: 100vw;
+
+        /* 
+        Method  1 
+        grid-column-start: 1;
+        grid-column-end: 4;
+        */
+
+        /* 
+        Method 2 
+        */
+        grid-column: 1 / span 3;
+
+        /* 
+        Comments : if we apply gir-column we need to make sure divs we alreadt created has to removed as per the count similar to rowspan and calspan in tables 
+        */
+
+        background-color: black;
+      }
+
+      .item2 {
+        justify-self: center;
+        align-self: center;
+        /* if you see item2 box it has been aligned center with in its grid space */
+      }
+
+      .footer {
+        width: 100vw;
+        height: 45px;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item item1">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima
+        accusamus ?
+      </div>
+      <div class="item item2">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat
+        aliquam dicta
+      </div>
+      <div class="item item3"></div>
+      <div class="item item4"></div>
+
+      <div class="item footer"></div>
+    </div>
+  </body>
+</html>
