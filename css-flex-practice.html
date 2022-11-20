@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+    <style type="text/css">
+      .mainbox {
+        display: flex;
+        border: 2px solid grey;
+        height: auto;
+        flex-direction: row;
+        /* justify-content: center;  */
+        /* justify-content: flex-end;  */
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap; /* responsove */
+        /* flex-flow:column wrap; we can use this property to give two options */
+      }
+      .boxitem {
+        background: red;
+        border: 2px solid #000000;
+        padding: 5px;
+        margin: 12px;
+        width: 122px;
+        height: 122px;
+      }
+      .item1 {
+        order: 3; /* changeorder box */
+        flex-grow: 3; /* increase the widh of the item and adjst other items accordingly */
+        flex-shrink: 2; /* when the width of the browser decreases, this item will take first hit in decreasing the  width */
+        align-self: center; /* it will align its position with inits control, whih will not follow parents flex box properties
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mainbox">
+      <div class="boxitem item1">1</div>
+      <div class="boxitem item2">2</div>
+      <div class="boxitem item3">3</div>
+      <div class="boxitem item4">4</div>
+    </div>
+  </body>
+</html>
